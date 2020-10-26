@@ -31,6 +31,7 @@ class Game extends Component {
         <div className="text-center">
           <OutputCharacters
             characters={this.state.outputCharacters}
+            gameWon={this.gameWon()}
             gameLost={this.gameLost()}
           />
         </div>

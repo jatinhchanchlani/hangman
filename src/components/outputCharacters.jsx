@@ -2,11 +2,11 @@ import React, { Component } from "react";
 
 class OutputCharacters extends Component {
   render() {
-    const { characters, gameLost } = this.props;
+    const { characters, gameWon, gameLost } = this.props;
     return (
       <React.Fragment>
         <br />
-        <h4>Guess this Indian City</h4>
+        {this.showLabel(gameWon, gameLost)}
         <h3>{characters.map((c) => this.getCharacter(c, gameLost))}</h3>
       </React.Fragment>
     );
@@ -22,6 +22,14 @@ class OutputCharacters extends Component {
       } else {
         return "__" + emptySpace;
       }
+    }
+  }
+
+  showLabel(gameWon, gameLost) {
+    if (gameWon || gameLost) {
+      return null;
+    } else {
+      return <h4>Guess this Indian City</h4>;
     }
   }
 }
